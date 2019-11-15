@@ -1,0 +1,29 @@
+version: '3'
+services:
+    db:
+      image: mysql:5.7
+      ports:
+        - "3307:3306"
+      environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        MYSQL_USER: 'root'
+      volumes:
+        - ./mysql:/var/lib/mysql
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8080:80"
+        depends_on:
+            - db
+        environment:
+          PMA_HOST: db
+
+    php7-apache:
+        build: php72
+        ports:
+          - "9072:80"
+        volumes:
+            - ./vhosts:/etc/apache2/sites-enabled
+            - ./backend:/var/www/backend
+            - ./frontend:/var/www/frontend
