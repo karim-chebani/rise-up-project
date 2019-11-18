@@ -25,7 +25,7 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Show</a>
           </li>
           <li class="nav-item <?php if($current_nav == 'add') { echo 'active'; } ?>">
-            <a class="nav-link" href="http://localhost:9072/frontend/api/add" tabindex="-1" aria-disabled="true">Add</a>
+            <a class="nav-link" href="http://localhost:9072/frontend/add" tabindex="-1" aria-disabled="true">Add</a>
           </li>
           <li class="nav-item <?php if($current_nav == 'update') { echo 'active'; } ?>">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Update</a>

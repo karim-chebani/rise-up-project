@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
 
-class Show extends CI_Controller {
+class Add extends CI_Controller {
 
   // /**
   //  * description

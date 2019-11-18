@@ -58,8 +58,8 @@ class Show extends CI_Controller {
     if ( isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['phone']) && isset($_POST['email'])
         && isset($_POST['address']) && isset($_POST['city']) && isset($_POST['id']) && isset($_POST['update']) )
     {
-      echo 'UPDATING';
-      var_dump($_POST);
+      // echo 'UPDATING';
+      // var_dump($_POST);
       $client = new Client([
         'base_uri' => 'http://localhost/backend/public/api/',
         'timeout'  => 2.0,
@@ -103,14 +103,14 @@ class Show extends CI_Controller {
     }
 
 
-    var_dump($_POST);
+    // var_dump($_POST);
     // Deleting user
     if ( isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['phone']) && isset($_POST['email'])
         && isset($_POST['address']) && isset($_POST['city']) && isset($_POST['id']) && isset($_POST['delete']) && $_POST['delete'] == 'Delete' )
     {
       echo 'DELETING';
       echo "klnl";
-      var_dump($_POST);
+      // var_dump($_POST);
       $client = new Client([
         'base_uri' => 'http://localhost/backend/public/api/',
         'timeout'  => 2.0,
@@ -120,7 +120,7 @@ class Show extends CI_Controller {
 
       $body = (json_decode($response->getBody(), true));
       $data['message'] = $body;
-      var_dump($data);
+      // var_dump($data);
 
       if($statusCode == 200) {
         $body = (json_decode($response->getBody(), true));
