@@ -14,6 +14,6 @@ $app = new \Slim\App();
 // });
 
 // Users Ressource Routes
-require '../src/routes/users.php';
+require '../src/ressources/users.php';
 
 $app->run();

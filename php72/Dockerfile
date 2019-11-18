@@ -43,15 +43,9 @@ RUN composer require slim/slim "^3.12"
 
 RUN a2enmod rewrite
 
-# RUN service apache2 restart
-
-# RUN apt-get install --reinstall systemd
-
-# RUN systemctl restart apache2
-
 WORKDIR /var/www/frontend
 
 RUN composer require guzzlehttp/guzzle:~6.0
 
-# The directory that contains the sources (inside the container, the ont at the right side of the docker-compose mapping)
+# The directory that contains the sources
 WORKDIR /var/www
