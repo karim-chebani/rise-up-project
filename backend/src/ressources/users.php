@@ -124,7 +124,7 @@ $app->put('/api/users/update/{id}/', function(Request $request, Response $respon
                 email		= :email,
                 address 	= :address,
                 city 		= :city,
-                country		= :country
+                country	= :country
 			WHERE id = $id";
     try{
         $db = new db();

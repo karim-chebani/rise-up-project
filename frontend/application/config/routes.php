@@ -54,4 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['show/(:num)'] = 'show/getUser/$1';
-$route['add/(:any)'] = 'add/getUser/';
+$route['add'] = 'add/getUser/';

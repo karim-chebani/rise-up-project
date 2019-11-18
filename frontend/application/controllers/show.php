@@ -1,7 +1,4 @@
 <?php
-// error_reporting(-1);
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use GuzzleHttp\Client;
@@ -58,8 +55,6 @@ class Show extends CI_Controller {
     if ( isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['phone']) && isset($_POST['email'])
         && isset($_POST['address']) && isset($_POST['city']) && isset($_POST['id']) && isset($_POST['update']) )
     {
-      // echo 'UPDATING';
-      // var_dump($_POST);
       $client = new Client([
         'base_uri' => 'http://localhost/backend/public/api/',
         'timeout'  => 2.0,
@@ -103,14 +98,10 @@ class Show extends CI_Controller {
     }
 
 
-    // var_dump($_POST);
     // Deleting user
     if ( isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['phone']) && isset($_POST['email'])
         && isset($_POST['address']) && isset($_POST['city']) && isset($_POST['id']) && isset($_POST['delete']) && $_POST['delete'] == 'Delete' )
     {
-      echo 'DELETING';
-      echo "klnl";
-      // var_dump($_POST);
       $client = new Client([
         'base_uri' => 'http://localhost/backend/public/api/',
         'timeout'  => 2.0,
@@ -120,7 +111,6 @@ class Show extends CI_Controller {
 
       $body = (json_decode($response->getBody(), true));
       $data['message'] = $body;
-      // var_dump($data);
 
       if($statusCode == 200) {
         $body = (json_decode($response->getBody(), true));
@@ -132,22 +122,20 @@ class Show extends CI_Controller {
           'base_uri' => 'http://localhost/backend/public/api/',
           'timeout'  => 2.0,
         ]);
-        $response = $client->request('GET', 'users/'.$_POST['id'].'/');
+        $response = $client->request('GET', 'users/');
         $body = $response->getBody();
         $statusCode =$response->getStatusCode();
         if($statusCode == 200) {
           $body = json_decode($response->getBody(), true);
-          $data['user'] = ($body);
-          $data['current_nav'] = 'show';
+          $data['user_list'] = ($body);
+          $data['current_nav'] = 'home';
           $this->load->helper('form');
           $this->load->view('template/header', $data);
-          $this->load->view('show');
+          $this->load->view('home');
           $this->load->view('template/footer');
         }
       }
     }
-
-
 
 
 

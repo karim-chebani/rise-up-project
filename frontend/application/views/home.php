@@ -9,6 +9,8 @@
       README.md available on the GitHub repository for more information.
       </br>
       This page displays a list of available users. Click on a name to perfome actions.
+      </br>
+      Or click on "Add" on the nav bar to add a user
     </p>
     <p>
       <a href="https://github.com/karim-chebani/rise-up-project" target="_blank" class="btn btn-primary my-2">GitHub repository</a>
@@ -18,6 +20,12 @@
 
 
   <table class="table table-hover">
+    <?php if ( isset($message['type']) && isset($message['text']) ) { ?>
+      <div class="alert <?php if ($message['type'] == 'error') {echo 'alert-danger';} else { echo 'alert-success';} ?>" role="alert">
+        <?php echo $message['text']; ?>
+      </div>
+    <?php } ?>
+
     <thead class="thead-dark">
       <tr>
         <th>Id</th>

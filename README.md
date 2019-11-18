@@ -57,6 +57,7 @@ Available endpoints of the api :
   - DELETE method : http://localhost:9072/backend/public/api/users/delete/{id}/
     - (Delete a user)
 
+
 ### Database
 If needed, sprint sql to feed the database
 ```

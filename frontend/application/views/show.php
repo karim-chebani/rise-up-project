@@ -12,7 +12,6 @@
 
 
 
-
 <div class="container">
   <?php if ( isset($message['type']) && isset($message['text']) ) { ?>
     <div class="alert <?php if ($message['type'] == 'error') {echo 'alert-danger';} else { echo 'alert-success';} ?>" role="alert">
@@ -30,27 +29,17 @@
                 </div>
             </div>
 
-              <?php
-              if(isset($email) && isset($password)){
-                echo validation_errors();
-                echo 'your email is : '. $email . '<br/>';
-                echo 'your password is : '. $password . '<br/>';
-                print_r ($_POST);
-              }
-              else {
-              ?>
               <div class="row">
                 <div class="col-md-12">
                   <?php
-                  echo validation_errors();
-                  echo form_open('http://127.0.0.1:9072/frontend/show/send');
-              }
-              ?>
+                    echo validation_errors();
+                    echo form_open('http://127.0.0.1:9072/frontend/show/send');
+                  ?>
 
               <div class="form-group row">
                 <!-- <label for="name" class="col-4 col-form-label">ID</label> -->
                 <div class="col-8">
-                  <?php echo form_hidden(['name' => 'id', 'id' => 'id', 'class' => 'form-control', 'value' => set_value('first_name'), 'value' => $user['id'], 'placeholder' => 'Karim', 'required' => 'required']); ?>
+                  <?php echo form_hidden('id', $user['id']); ?>
                 </div>
               </div>
               <div class="form-group row">
